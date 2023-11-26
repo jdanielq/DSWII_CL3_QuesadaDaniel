@@ -1,5 +1,7 @@
-package cibertec.edu.pe.DSWII_CL3_QuesadaDaniel.security;
+package com.example.dswii_cl3_castillotaraenzo.security;
 
+
+import cibertec.edu.pe.DSWII_CL3_QuesadaDaniel.security.FiltroJWTAutorizacion;
 import cibertec.edu.pe.DSWII_CL3_QuesadaDaniel.service.DetalleUsuarioService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -15,7 +17,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-
 @AllArgsConstructor
 @EnableMethodSecurity
 @EnableWebSecurity
@@ -26,6 +27,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
         httpSecurity
+                .cors().and()
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(
                         auth ->
